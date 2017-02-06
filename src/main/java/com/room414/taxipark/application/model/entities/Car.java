@@ -60,6 +60,7 @@ public class Car {
         }
     }
 
+    private int id;
     private String manufacturer;
     private String model;
     private float fuelConsumption;
@@ -73,6 +74,14 @@ public class Car {
 
     public static CarBuilder carBuilder() {
         return new CarBuilder();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    void setId(int id) {
+        this.id = id;
     }
 
     public String getManufacturer() {

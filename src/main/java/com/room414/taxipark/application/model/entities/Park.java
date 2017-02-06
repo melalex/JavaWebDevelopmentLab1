@@ -1,5 +1,7 @@
 package com.room414.taxipark.application.model.entities;
 
+import com.room414.taxipark.application.model.interfaces.CarRepository;
+
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -15,6 +17,7 @@ public class Park {
         private String city;
         private String street;
         private String buildingNumber;
+        private CarRepository carRepository;
 
         public void setName(String name) {
             this.name = name;
@@ -36,6 +39,10 @@ public class Park {
             this.buildingNumber = buildingNumber;
         }
 
+        public void setCarRepository(CarRepository carRepository) {
+            this.carRepository = carRepository;
+        }
+
         public Park build() {
             Park park = new Park();
 
@@ -44,6 +51,7 @@ public class Park {
             park.city = this.city;
             park.street = this.street;
             park.buildingNumber = this.buildingNumber;
+            park.carRepository = this.carRepository;
 
             return park;
         }
@@ -54,7 +62,7 @@ public class Park {
     private String city;
     private String street;
     private String buildingNumber;
-    private Map<Integer, Car> carList = new TreeMap<>();
+    private CarRepository carRepository;
 
     private Park() {
 
