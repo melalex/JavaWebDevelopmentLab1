@@ -5,10 +5,12 @@ import java.math.BigDecimal;
 /**
  * Created by melalex on 2/6/17.
  */
-public class Car {
+public class Car extends Entity<Long> {
     enum CarClass {A, B, C, D, E, F, J, M, S }
 
     public static class CarBuilder {
+        private static long nextId = 0;
+
         private String manufacturer;
         private String model;
         private float fuelConsumption;
@@ -49,6 +51,7 @@ public class Car {
         public Car build() {
             Car newCar = new Car();
 
+            newCar.id = nextId++;
             newCar.manufacturer = this.manufacturer;
             newCar.model = this.model;
             newCar.fuelConsumption = this.fuelConsumption;
@@ -60,7 +63,7 @@ public class Car {
         }
     }
 
-    private int id;
+    private long id;
     private String manufacturer;
     private String model;
     private float fuelConsumption;
@@ -76,12 +79,9 @@ public class Car {
         return new CarBuilder();
     }
 
-    public int getId() {
+    @Override
+    public Long getId() {
         return id;
-    }
-
-    void setId(int id) {
-        this.id = id;
     }
 
     public String getManufacturer() {

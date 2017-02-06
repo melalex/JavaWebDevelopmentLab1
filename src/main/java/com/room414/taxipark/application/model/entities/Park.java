@@ -1,23 +1,22 @@
 package com.room414.taxipark.application.model.entities;
 
 import com.room414.taxipark.application.model.interfaces.CarRepository;
+import com.room414.taxipark.application.model.repositories.TreeMapCarRepository;
 
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Created by melalex on 2/6/17.
  */
-public class Park {
+public class Park extends Entity<Long> {
 
     public static class ParkBuilder {
+        private static long nextId = 0;
+
         private String name;
         private String country;
         private String city;
         private String street;
         private String buildingNumber;
-        private CarRepository carRepository;
 
         public void setName(String name) {
             this.name = name;
@@ -39,24 +38,22 @@ public class Park {
             this.buildingNumber = buildingNumber;
         }
 
-        public void setCarRepository(CarRepository carRepository) {
-            this.carRepository = carRepository;
-        }
-
         public Park build() {
             Park park = new Park();
 
+            park.id = nextId++;
             park.name = this.name;
             park.country = this.country;
             park.city = this.city;
             park.street = this.street;
             park.buildingNumber = this.buildingNumber;
-            park.carRepository = this.carRepository;
+            park.carRepository = new TreeMapCarRepository();
 
             return park;
         }
     }
 
+    private long id;
     private String name;
     private String country;
     private String city;
@@ -70,6 +67,11 @@ public class Park {
 
     public static ParkBuilder parkBuilder() {
         return new ParkBuilder();
+    }
+
+    @Override
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -90,5 +92,9 @@ public class Park {
 
     public String getBuildingNumber() {
         return buildingNumber;
+    }
+
+    public CarRepository getCarRepository() {
+        return carRepository;
     }
 }

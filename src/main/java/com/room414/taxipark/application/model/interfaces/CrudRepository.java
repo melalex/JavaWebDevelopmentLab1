@@ -5,10 +5,10 @@ import java.util.List;
 /**
  * Created by melalex on 2/6/17.
  */
-public interface CrudRepository<T> {
+public interface CrudRepository<K, T> {
     void create(T entity);
-    T find(int id);
+    T find(K id);
     List<T> findAll();
-    void update(int id, T entity);
-    void delete(int id);
+    void update(K id, T entity);
+    void delete(K id);
 }

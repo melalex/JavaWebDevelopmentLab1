@@ -8,8 +8,8 @@ import java.util.List;
 /**
  * Created by melalex on 2/6/17.
  */
-public interface CarRepository extends CrudRepository<Car> {
+public interface CarRepository extends CrudRepository<Long, Car> {
     BigDecimal carsCost();
     List<Car> sortedByFuelConsumption();
-    List<Car> carsInSpeedDiapason();
+    List<Car> carsInSpeedDiapason(float lowerBound, float upperBound);
 }
