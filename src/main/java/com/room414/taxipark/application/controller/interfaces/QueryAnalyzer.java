@@ -1,10 +1,10 @@
 package com.room414.taxipark.application.controller.interfaces;
 
-import com.room414.taxipark.application.controller.infrastucture.QueryChain;
+import com.room414.taxipark.application.controller.infrastucture.Query;
 
 /**
  * Created by melalex on 2/6/17.
  */
 public interface QueryAnalyzer {
-    QueryChain analyze(String query);
+    Query analyze(String query);
 }

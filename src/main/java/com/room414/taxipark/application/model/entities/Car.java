@@ -13,10 +13,14 @@ public class Car extends Entity<Long> {
 
         private String manufacturer;
         private String model;
-        private float fuelConsumption;
+        private float consumption;
         private float speed;
         private BigDecimal currency;
         private CarClass carClass;
+
+        private CarBuilder() {
+
+        }
 
         public CarBuilder setManufacturer(String manufacturer) {
             this.manufacturer = manufacturer;
@@ -28,8 +32,8 @@ public class Car extends Entity<Long> {
             return this;
         }
 
-        public CarBuilder setFuelConsumption(float fuelConsumption) {
-            this.fuelConsumption = fuelConsumption;
+        public CarBuilder setConsumption(float consumption) {
+            this.consumption = consumption;
             return this;
         }
 
@@ -54,7 +58,7 @@ public class Car extends Entity<Long> {
             newCar.id = nextId++;
             newCar.manufacturer = this.manufacturer;
             newCar.model = this.model;
-            newCar.fuelConsumption = this.fuelConsumption;
+            newCar.fuelConsumption = this.consumption;
             newCar.speed = this.speed;
             newCar.currency = this.currency;
             newCar.carClass = this.carClass;

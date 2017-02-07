@@ -1,6 +1,6 @@
 package com.room414.taxipark.application.controller.implementation;
 
-import com.room414.taxipark.application.controller.infrastucture.QueryChain;
+import com.room414.taxipark.application.controller.infrastucture.Query;
 import com.room414.taxipark.application.controller.interfaces.QueryAnalyzer;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
 
@@ -8,14 +8,14 @@ import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
  * Created by melalex on 2/5/17.
  */
 public class SimpleQueryExecutor implements QueryExecutor {
-    private QueryAnalyzer queryAnalyzer;
+    private QueryAnalyzer queryAnalyzer = new SimpleQueryAnalyzer();
 
-    public SimpleQueryExecutor(QueryAnalyzer queryAnalyzer) {
-        this.queryAnalyzer = queryAnalyzer;
+    public SimpleQueryExecutor() {
+
     }
 
     @Override
-    public void executeQuery(String query) {
-        QueryChain queryChain = queryAnalyzer.analyze(query);
+    public void executeQuery(String request) {
+        Query query = queryAnalyzer.analyze(request);
     }
 }

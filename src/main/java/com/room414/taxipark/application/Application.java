@@ -1,5 +1,6 @@
 package com.room414.taxipark.application;
 
+import com.room414.taxipark.application.controller.implementation.SimpleQueryAnalyzer;
 import com.room414.taxipark.application.controller.implementation.SimpleQueryExecutor;
 import com.room414.taxipark.application.controller.interfaces.QueryAnalyzer;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
@@ -39,7 +40,7 @@ public class Application {
     }
 
     private void init() {
-
+        queryExecutor = new SimpleQueryExecutor();
     }
 
     private void run() throws IOException {

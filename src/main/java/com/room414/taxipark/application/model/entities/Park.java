@@ -18,6 +18,10 @@ public class Park extends Entity<Long> {
         private String street;
         private String buildingNumber;
 
+        private ParkBuilder() {
+
+        }
+
         public void setName(String name) {
             this.name = name;
         }
