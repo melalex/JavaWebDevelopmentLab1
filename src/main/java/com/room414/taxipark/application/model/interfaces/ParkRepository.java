@@ -5,6 +5,6 @@ import com.room414.taxipark.application.model.entities.Park;
 /**
  * Created by melalex on 2/6/17.
  */
-public interface ParkRepository extends CrudRepository<Long, Park> {
+public interface ParkRepository extends CrudRepository<Integer, Park> {
 
 }

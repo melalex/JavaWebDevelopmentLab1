@@ -55,6 +55,10 @@ public class Query {
         return arguments.get(name);
     }
 
+    public String getArgumentOrDefault(String name, String defaultValue) {
+        return arguments.getOrDefault(name, defaultValue);
+    }
+
     public Set<String> argumentsNames() {
         return arguments.keySet();
     }

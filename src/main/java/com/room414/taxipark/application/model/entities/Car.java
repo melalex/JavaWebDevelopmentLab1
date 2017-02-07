@@ -5,12 +5,14 @@ import java.math.BigDecimal;
 /**
  * Created by melalex on 2/6/17.
  */
-public class Car extends Entity<Long> {
-    enum CarClass {A, B, C, D, E, F, J, M, S }
+public class Car extends Entity<Integer> {
+    public enum CarClass {A, B, C, D, E, F, J, M, S }
 
     public static class CarBuilder {
-        private static long nextId = 0;
+        private static int nextId = 0;
 
+        private int id = -1;
+        private int parkId;
         private String manufacturer;
         private String model;
         private float consumption;
@@ -20,6 +22,11 @@ public class Car extends Entity<Long> {
 
         private CarBuilder() {
 
+        }
+
+        public CarBuilder setParkId(int parkId) {
+            this.parkId = parkId;
+            return this;
         }
 
         public CarBuilder setManufacturer(String manufacturer) {
@@ -55,10 +62,14 @@ public class Car extends Entity<Long> {
         public Car build() {
             Car newCar = new Car();
 
-            newCar.id = nextId++;
+            if (id == -1) {
+                newCar.id = nextId++;
+            }
+
+            newCar.parkId = this.parkId;
             newCar.manufacturer = this.manufacturer;
             newCar.model = this.model;
-            newCar.fuelConsumption = this.consumption;
+            newCar.consumption = this.consumption;
             newCar.speed = this.speed;
             newCar.currency = this.currency;
             newCar.carClass = this.carClass;
@@ -67,10 +78,11 @@ public class Car extends Entity<Long> {
         }
     }
 
-    private long id;
+    private int id;
+    private int parkId;
     private String manufacturer;
     private String model;
-    private float fuelConsumption;
+    private float consumption;
     private float speed;
     private BigDecimal currency;
     private CarClass carClass;
@@ -83,9 +95,26 @@ public class Car extends Entity<Long> {
         return new CarBuilder();
     }
 
+    public CarBuilder carCopyBuilder() {
+        CarBuilder carBuilder = new CarBuilder()
+                .setParkId(parkId)
+                .setCarClass(carClass)
+                .setConsumption(consumption)
+                .setCurrency(currency.floatValue())
+                .setManufacturer(manufacturer)
+                .setModel(model)
+                .setSpeed(speed);
+        carBuilder.id = id;
+        return carBuilder;
+    }
+
     @Override
-    public Long getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public int getParkId() {
+        return parkId;
     }
 
     public String getManufacturer() {
@@ -96,8 +125,8 @@ public class Car extends Entity<Long> {
         return model;
     }
 
-    public float getFuelConsumption() {
-        return fuelConsumption;
+    public float getConsumption() {
+        return consumption;
     }
 
     public float getSpeed() {

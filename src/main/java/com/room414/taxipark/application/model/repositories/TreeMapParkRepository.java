@@ -6,6 +6,6 @@ import com.room414.taxipark.application.model.interfaces.ParkRepository;
 /**
  * Created by melalex on 2/7/17.
  */
-public class TreeMapParkRepository extends TreeMapRepository<Long, Park> implements ParkRepository {
+public class TreeMapParkRepository extends TreeMapRepository<Integer, Park> implements ParkRepository {
 
 }

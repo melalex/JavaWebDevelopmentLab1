@@ -7,11 +7,12 @@ import com.room414.taxipark.application.model.repositories.TreeMapCarRepository;
 /**
  * Created by melalex on 2/6/17.
  */
-public class Park extends Entity<Long> {
+public class Park extends Entity<Integer> {
 
     public static class ParkBuilder {
-        private static long nextId = 0;
+        private static int nextId = 0;
 
+        private int id = -1;
         private String name;
         private String country;
         private String city;
@@ -22,48 +23,54 @@ public class Park extends Entity<Long> {
 
         }
 
-        public void setName(String name) {
+        public ParkBuilder setName(String name) {
             this.name = name;
+            return this;
         }
 
-        public void setCountry(String country) {
+        public ParkBuilder setCountry(String country) {
             this.country = country;
+            return this;
         }
 
-        public void setCity(String city) {
+        public ParkBuilder setCity(String city) {
             this.city = city;
+            return this;
         }
 
-        public void setStreet(String street) {
+        public ParkBuilder setStreet(String street) {
             this.street = street;
+            return this;
         }
 
-        public void setBuildingNumber(String buildingNumber) {
+        public ParkBuilder setBuildingNumber(String buildingNumber) {
             this.buildingNumber = buildingNumber;
+            return this;
         }
 
         public Park build() {
             Park park = new Park();
 
-            park.id = nextId++;
+            if (id == -1) {
+                park.id = nextId++;
+            }
+
             park.name = this.name;
             park.country = this.country;
             park.city = this.city;
             park.street = this.street;
             park.buildingNumber = this.buildingNumber;
-            park.carRepository = new TreeMapCarRepository();
 
             return park;
         }
     }
 
-    private long id;
+    private int id;
     private String name;
     private String country;
     private String city;
     private String street;
     private String buildingNumber;
-    private CarRepository carRepository;
 
     private Park() {
 
@@ -73,8 +80,19 @@ public class Park extends Entity<Long> {
         return new ParkBuilder();
     }
 
+    public ParkBuilder parkCopyBuilder() {
+        ParkBuilder parkBuilder = new ParkBuilder()
+                .setBuildingNumber(buildingNumber)
+                .setCity(city)
+                .setCountry(country)
+                .setName(name)
+                .setStreet(street);
+        parkBuilder.id = id;
+        return parkBuilder;
+    }
+
     @Override
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -96,9 +114,5 @@ public class Park extends Entity<Long> {
 
     public String getBuildingNumber() {
         return buildingNumber;
-    }
-
-    public CarRepository getCarRepository() {
-        return carRepository;
     }
 }

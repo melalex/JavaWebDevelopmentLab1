@@ -10,27 +10,39 @@ import java.util.stream.Collectors;
 /**
  * Created by melalex on 2/7/17.
  */
-public class TreeMapCarRepository extends TreeMapRepository<Long, Car> implements CarRepository {
+public class TreeMapCarRepository extends TreeMapRepository<Integer, Car> implements CarRepository {
     @Override
-    public BigDecimal carsCost() {
+    public BigDecimal carsCost(int parkId) {
         List<Car> cars = findAll();
-        return cars.stream().map(Car::getCurrency).reduce(BigDecimal.ZERO ,BigDecimal::add);
+        return cars.stream()
+                .filter(c -> c.getParkId() == parkId)
+                .map(Car::getCurrency)
+                .reduce(BigDecimal.ZERO ,BigDecimal::add);
     }
 
     @Override
-    public List<Car> sortedByFuelConsumption() {
-        List<Car> cars = findAll();
-        return cars.stream()
-                .sorted((c1, c2) -> (int) (c1.getFuelConsumption() - c2.getFuelConsumption()))
+    public List<Car> findAllCarsFromPark(int parkId) {
+        return findAll()
+                .stream()
+                .filter(c -> c.getParkId() == parkId)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Car> carsInSpeedDiapason(float lowerBound, float upperBound) {
+    public List<Car> sortedByFuelConsumption(int parkId) {
+        List<Car> cars = findAll();
+        return cars.stream()
+                .filter(c -> c.getParkId() == parkId)
+                .sorted((c1, c2) -> (int) (c1.getConsumption() - c2.getConsumption()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Car> carsInSpeedDiapason(int parkId, float lowerBound, float upperBound) {
         List<Car> cars = findAll();
         return cars.stream().filter(c -> {
             float speed = c.getSpeed();
-            return speed >= lowerBound && speed <= upperBound;
+            return (c.getParkId() == parkId) && (speed >= lowerBound) && (speed <= upperBound);
         }).collect(Collectors.toList());
     }
 }

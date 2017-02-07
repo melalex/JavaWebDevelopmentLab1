@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /**
  * Created by melalex on 2/7/17.
  */
-public class SimpleQueryAnalyzer implements QueryAnalyzer {
+class SimpleQueryAnalyzer implements QueryAnalyzer {
     private static final Map<String, QueryType> types = new HashMap<String, QueryType>() {{
         for (QueryType type: QueryType.values()) {
             put(type.getQuery(), type);
@@ -65,7 +65,7 @@ public class SimpleQueryAnalyzer implements QueryAnalyzer {
 
             for (int i = 0, groupCount = matcher.groupCount(); i < groupCount; i++) {
                 arguments = matcher.group(i).split(":");
-                builder.setArgument(arguments[0].trim(), arguments[1].trim());
+                builder.setArgument(arguments[0].trim().toUpperCase(), arguments[1].trim());
             }
         } else {
             builder.setQueryType(QueryType.INVALID);

@@ -1,9 +1,7 @@
 package com.room414.taxipark.application;
 
-import com.room414.taxipark.application.controller.implementation.SimpleQueryAnalyzer;
-import com.room414.taxipark.application.controller.implementation.SimpleQueryExecutor;
-import com.room414.taxipark.application.controller.interfaces.QueryAnalyzer;
-import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
+import com.room414.taxipark.application.controller.implementation.SimpleController;
+import com.room414.taxipark.application.controller.interfaces.Controller;
 
 import java.io.*;
 
@@ -17,7 +15,7 @@ public class Application {
 
     private BufferedReader inputStream;
     private PrintStream printStream;
-    private QueryExecutor queryExecutor;
+    private Controller controller;
 
     public Application(InputStream inputStream, PrintStream printStream) {
         this.inputStream = new BufferedReader(new InputStreamReader(inputStream));
@@ -40,7 +38,7 @@ public class Application {
     }
 
     private void init() {
-        queryExecutor = new SimpleQueryExecutor();
+        controller = new SimpleController();
     }
 
     private void run() throws IOException {
@@ -50,7 +48,7 @@ public class Application {
             printStream.print(">>>");
             input = inputStream.readLine();
             if (!input.equalsIgnoreCase(QUIT_STRING)) {
-                queryExecutor.executeQuery(input);
+                controller.executeQuery(input);
             } else {
                 isRun = false;
             }
