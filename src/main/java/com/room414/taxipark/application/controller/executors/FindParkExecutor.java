@@ -9,23 +9,18 @@ import com.room414.taxipark.application.view.interfaces.View;
 /**
  * Created by melalex on 2/8/17.
  */
-public class FindParkExecutor extends QueryExecutor {
+public class FindParkExecutor extends QueryWithOneIdArgumentExecutor {
     private ParkRepository parkRepository;
     private Park result;
 
-    public FindParkExecutor(ParkRepository parkRepository, View view) {
+    FindParkExecutor(ParkRepository parkRepository, View view) {
         this.parkRepository = parkRepository;
         this.view = view;
     }
 
     @Override
-    public boolean isValid() {
-        return false;
-    }
-
-    @Override
     public void execute() {
-        result = parkRepository.find(Integer.parseInt(query.getArgument("ID")));
+        result = parkRepository.find(id);
     }
 
     @Override

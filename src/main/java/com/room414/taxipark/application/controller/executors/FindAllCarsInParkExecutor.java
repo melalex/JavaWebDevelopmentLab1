@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by melalex on 2/8/17.
  */
-public class FindAllCarsInParkExecutor extends QueryExecutor {
+public class FindAllCarsInParkExecutor extends QueryWithOneIdArgumentExecutor {
     private CarRepository carRepository;
     private List<Car> result;
 
@@ -21,13 +21,8 @@ public class FindAllCarsInParkExecutor extends QueryExecutor {
     }
 
     @Override
-    public boolean isValid() {
-        return false;
-    }
-
-    @Override
     public void execute() {
-        result = carRepository.findAllCarsFromPark(Integer.parseInt(query.getArgument("PARK")));
+        result = carRepository.findAllCarsFromPark(id);
     }
 
     @Override

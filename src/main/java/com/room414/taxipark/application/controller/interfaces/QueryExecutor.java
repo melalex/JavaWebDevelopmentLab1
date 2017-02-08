@@ -14,11 +14,20 @@ public abstract class QueryExecutor {
         this.query = query;
     }
 
+    public void complete() {
+        if (prepare()) {
+            execute();
+            render();
+        } else {
+            renderErrors();
+        }
+    }
+
     public void renderErrors() {
 
     }
 
-    public abstract boolean isValid();
-    public abstract void execute();
-    public abstract void render();
+    protected abstract boolean prepare();
+    protected abstract void execute();
+    protected abstract void render();
 }

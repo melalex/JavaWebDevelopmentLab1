@@ -13,49 +13,49 @@ public enum QueryType {
     CREATE_CAR {
         @Override
         public String getQuery(){
-            return "CREATE CAR";
+            return "CREATE_CAR";
         }
     },
     CREATE_PARK {
         @Override
         public String getQuery(){
-            return "CREATE PARK";
+            return "CREATE_PARK";
         }
     },
     FIND_ALL_CARS{
         @Override
         public String getQuery(){
-            return "ALL CAR";
+            return "ALL_CAR";
         }
     },
     FIND_ALL_PARKS {
         @Override
         public String getQuery(){
-            return "ALL PARK";
+            return "ALL_PARK";
         }
     },
     GET_CAR {
         @Override
         public String getQuery(){
-            return "GET CAR";
+            return "GET_CAR";
         }
     },
     GET_PARK {
         @Override
         public String getQuery(){
-            return "GET PARK";
+            return "GET_PARK";
         }
     },
     DELETE_CAR {
         @Override
         public String getQuery(){
-            return "DELETE CAR";
+            return "DELETE_CAR";
         }
     },
     DELETE_PARK {
         @Override
         public String getQuery(){
-            return "DELETE PARK";
+            return "DELETE_PARK";
         }
     },
     CARS_COST {

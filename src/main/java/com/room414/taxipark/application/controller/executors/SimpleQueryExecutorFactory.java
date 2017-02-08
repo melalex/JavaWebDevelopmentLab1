@@ -18,17 +18,21 @@ public class SimpleQueryExecutorFactory implements QueryExecutorFactory {
 
     public SimpleQueryExecutorFactory(DataStore dataStore, View view) {
         queryExecutorMap = new HashMap<QueryType, QueryExecutor>() {{
-            put(QueryType.CARS_COST, new CarsCostExecutor());
-            put(QueryType.CONSUMPTION, new SortByConsumptionExecutor());
-            put(QueryType.CREATE_CAR, new CreateCarExecutor(dataStore.getCarRepository(), view));
+            put(QueryType.CARS_COST, new CarsCostExecutor(dataStore.getCarRepository(), view));
+            put(QueryType.CONSUMPTION, new SortByConsumptionExecutor(dataStore.getCarRepository(), view));
             put(QueryType.CREATE_PARK, new CreateParkExecutor(dataStore.getParkRepository(), view));
             put(QueryType.FIND_ALL_CARS, new FindAllCarsInParkExecutor(dataStore.getCarRepository(), view));
             put(QueryType.FIND_ALL_PARKS, new FindAllParks(dataStore.getParkRepository(), view));
-            put(QueryType.DELETE_CAR, new DeleteCarExecutor());
-            put(QueryType.DELETE_PARK, new DeleteParkExecutor());
-            put(QueryType.SPEED, new InSpeedDiapasonExecutor());
+            put(QueryType.DELETE_CAR, new DeleteCarExecutor(dataStore.getCarRepository(), view));
+            put(QueryType.DELETE_PARK, new DeleteParkExecutor(dataStore.getParkRepository(), view));
+            put(QueryType.SPEED, new InSpeedDiapasonExecutor(dataStore.getCarRepository(), view));
             put(QueryType.GET_CAR, new FindCarExecutor(dataStore.getCarRepository(), view));
             put(QueryType.GET_PARK, new FindParkExecutor(dataStore.getParkRepository(), view));
+            put(QueryType.CREATE_CAR, new CreateCarExecutor(
+                    dataStore.getCarRepository(),
+                    dataStore.getParkRepository(),
+                    view)
+            );
         }};
     }
 
