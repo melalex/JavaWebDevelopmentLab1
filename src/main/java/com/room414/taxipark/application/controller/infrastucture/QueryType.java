@@ -7,7 +7,7 @@ public enum QueryType {
     INVALID {
         @Override
         public String getQuery(){
-            return "";
+            return "INVALID";
         }
     },
     CREATE_CAR {
@@ -44,18 +44,6 @@ public enum QueryType {
         @Override
         public String getQuery(){
             return "GET PARK";
-        }
-    },
-    UPDATE_CAR {
-        @Override
-        public String getQuery(){
-            return "UPDATE CAR";
-        }
-    },
-    UPDATE_PARK {
-        @Override
-        public String getQuery(){
-            return "UPDATE PARK";
         }
     },
     DELETE_CAR {

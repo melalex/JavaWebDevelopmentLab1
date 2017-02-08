@@ -29,8 +29,6 @@ class SimpleQueryAnalyzer implements QueryAnalyzer {
                     QueryType.FIND_ALL_PARKS,
                     QueryType.GET_CAR,
                     QueryType.GET_PARK,
-                    QueryType.UPDATE_CAR,
-                    QueryType.UPDATE_PARK,
                     QueryType.DELETE_CAR,
                     QueryType.DELETE_PARK,
                     QueryType.CARS_COST,
