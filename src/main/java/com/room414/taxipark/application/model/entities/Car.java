@@ -3,7 +3,10 @@ package com.room414.taxipark.application.model.entities;
 import java.math.BigDecimal;
 
 /**
- * Created by melalex on 2/6/17.
+ * Class description goes here.
+ *
+ * @version 1.0 09 Feb 2017
+ * @author melalex
  */
 public class Car extends Entity<Integer> {
     public enum CarClass {A, B, C, D, E, F, J, M, S }

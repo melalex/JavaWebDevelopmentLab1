@@ -10,7 +10,10 @@ import com.room414.taxipark.application.view.interfaces.View;
 import java.io.*;
 
 /**
- * Created by melalex on 2/5/17.
+ * Class description goes here.
+ *
+ * @version 1.10 2/5/17
+ * @author melalex
  */
 public class Application {
     private static final String QUIT_STRING = "exit";

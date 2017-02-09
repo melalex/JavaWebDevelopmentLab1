@@ -3,14 +3,16 @@ package com.room414.taxipark.application.model.repositories;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
 import com.room414.taxipark.application.model.interfaces.DataStore;
 import com.room414.taxipark.application.model.interfaces.ParkRepository;
-import com.room414.taxipark.application.view.implementation.SimpleView;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by melalex on 2/8/17.
+ * Description goes here.
+ *
+ * @version 1.0 09 Feb 2017
+ * @author melalex
  */
 public class SimpleDataStore implements DataStore {
     private CarRepository carRepository;

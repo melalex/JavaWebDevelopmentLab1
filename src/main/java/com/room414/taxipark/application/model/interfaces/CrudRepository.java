@@ -9,6 +9,6 @@ public interface CrudRepository<K, T> {
     void create(T entity);
     T find(K id);
     List<T> findAll();
-    void update(K id, T entity);
+    void update(T entity);
     void delete(K id);
 }

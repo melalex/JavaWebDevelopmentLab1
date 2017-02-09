@@ -16,6 +16,10 @@ public class TreeMapRepository<K, T extends Entity<K>> implements CrudRepository
 
     @Override
     public void create(T entity) {
+        if (dataStore.containsKey(entity.getId())) {
+            throw new IllegalArgumentException("Repository already contains entity with id " + entity.getId());
+        }
+
         dataStore.put(entity.getId(), entity);
     }
 
@@ -30,8 +34,8 @@ public class TreeMapRepository<K, T extends Entity<K>> implements CrudRepository
     }
 
     @Override
-    public void update(K id, T entity) {
-        dataStore.put(id, entity);
+    public void update(T entity) {
+        dataStore.put(entity.getId(), entity);
     }
 
     @Override

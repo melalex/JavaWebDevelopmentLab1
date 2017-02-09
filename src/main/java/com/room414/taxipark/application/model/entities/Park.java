@@ -1,11 +1,11 @@
 package com.room414.taxipark.application.model.entities;
 
-import com.room414.taxipark.application.model.interfaces.CarRepository;
-import com.room414.taxipark.application.model.repositories.TreeMapCarRepository;
-
 
 /**
- * Created by melalex on 2/6/17.
+ * Class description goes here.
+ *
+ * @version 1.0 09 Feb 2017
+ * @author melalex
  */
 public class Park extends Entity<Integer> {
 
