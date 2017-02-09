@@ -14,7 +14,8 @@ import java.io.*;
  */
 public class Application {
     private static final String QUIT_STRING = "exit";
-    private static final String BD_FILE_PATH = "";
+    private static final String BD_FILE_PATH = System.getProperty("user.dir")
+            + System.getProperty("file.separator") + ".database.json";
 
     private boolean isRun = true;
 
@@ -30,6 +31,7 @@ public class Application {
 
     public void forceStop() {
         isRun = false;
+
     }
 
     public void start() {
@@ -43,7 +45,7 @@ public class Application {
         }
     }
 
-    private void init() {
+    private void init() throws IOException {
         View view = new SimpleView(printStream);
         dataStore = SimpleDataStore.simpleDataStore(BD_FILE_PATH);
         controller = new SimpleController(dataStore, view);
@@ -69,7 +71,11 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            dataStore.persistence(BD_FILE_PATH);
+            try {
+                dataStore.persistence(BD_FILE_PATH);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
