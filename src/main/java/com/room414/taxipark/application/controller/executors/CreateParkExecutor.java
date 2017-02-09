@@ -62,9 +62,4 @@ public class CreateParkExecutor extends QueryExecutor {
 
         parkRepository.create(park);
     }
-
-    @Override
-    public void render() {
-
-    }
 }

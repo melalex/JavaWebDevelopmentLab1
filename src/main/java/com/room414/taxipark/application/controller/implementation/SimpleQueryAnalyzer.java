@@ -54,7 +54,9 @@ class SimpleQueryAnalyzer implements QueryAnalyzer {
     @Override
     public Query analyze(String query) {
         String normalizedQuery = query.trim();
-        Query.QueryBuilder builder = Query.queryBuilder();
+        Query.QueryBuilder builder = Query
+                .queryBuilder()
+                .setStringRepresentation(query);
 
         if (queryPattern.matcher(normalizedQuery).matches()) {
             builder.setQueryType(queryType(normalizedQuery));

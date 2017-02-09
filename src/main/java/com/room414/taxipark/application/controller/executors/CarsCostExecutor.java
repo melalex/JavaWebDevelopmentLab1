@@ -25,6 +25,6 @@ public class CarsCostExecutor extends QueryWithOneIdArgumentExecutor {
 
     @Override
     public void render() {
-
+        view.renderMessage(String.format("Cars cost in park with id %d is %f", id, result));
     }
 }

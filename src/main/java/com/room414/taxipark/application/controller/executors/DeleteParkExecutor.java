@@ -19,9 +19,4 @@ public class DeleteParkExecutor extends QueryWithOneIdArgumentExecutor {
     public void execute() {
         parkRepository.delete(id);
     }
-
-    @Override
-    public void render() {
-
-    }
 }

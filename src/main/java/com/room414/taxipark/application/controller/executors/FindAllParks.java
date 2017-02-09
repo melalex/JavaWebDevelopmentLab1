@@ -33,6 +33,6 @@ public class FindAllParks extends QueryExecutor {
 
     @Override
     public void render() {
-
+        view.renderParksList(result);
     }
 }

@@ -6,4 +6,6 @@ package com.room414.taxipark.application.model.interfaces;
 public interface DataStore {
     CarRepository getCarRepository();
     ParkRepository getParkRepository();
+
+    void persistence(String filePath);
 }

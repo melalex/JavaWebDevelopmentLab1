@@ -19,9 +19,4 @@ public class DeleteCarExecutor extends QueryWithOneIdArgumentExecutor {
     public void execute() {
         carRepository.delete(id);
     }
-
-    @Override
-    public void render() {
-
-    }
 }

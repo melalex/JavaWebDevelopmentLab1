@@ -118,9 +118,4 @@ public class CreateCarExecutor extends QueryExecutor {
 
         carRepository.create(car);
     }
-
-    @Override
-    public void render() {
-
-    }
 }

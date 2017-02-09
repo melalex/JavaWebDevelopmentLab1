@@ -27,6 +27,6 @@ public class FindAllCarsInParkExecutor extends QueryWithOneIdArgumentExecutor {
 
     @Override
     public void render() {
-
+        view.renderCarsList(result);
     }
 }

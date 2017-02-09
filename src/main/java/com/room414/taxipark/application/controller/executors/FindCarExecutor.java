@@ -4,6 +4,8 @@ import com.room414.taxipark.application.model.entities.Car;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
 import com.room414.taxipark.application.view.interfaces.View;
 
+import java.util.LinkedList;
+
 
 /**
  * Created by melalex on 2/8/17.
@@ -24,6 +26,6 @@ public class FindCarExecutor extends QueryWithOneIdArgumentExecutor {
 
     @Override
     public void render() {
-
+        view.renderCarsList(new LinkedList<Car>(){{addLast(result);}});
     }
 }

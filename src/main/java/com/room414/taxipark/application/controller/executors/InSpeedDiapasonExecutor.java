@@ -5,6 +5,7 @@ import com.room414.taxipark.application.model.entities.Car;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
 import com.room414.taxipark.application.view.interfaces.View;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -31,6 +32,10 @@ public class InSpeedDiapasonExecutor extends QueryExecutor {
 
     @Override
     public boolean prepare() {
+        if (ARGUMENTS_COUNT != query.argumentsCount()) {
+            return false;
+        }
+
         String id = query.getArgument(ID_ARGUMENT_NAME);
 
         if (id == null || IsParsable.isParsableToInt(id)) {
@@ -53,7 +58,7 @@ public class InSpeedDiapasonExecutor extends QueryExecutor {
             return false;
         }
 
-        minArgument = Float.parseFloat(max);
+        maxArgument = Float.parseFloat(max);
 
         return minArgument < maxArgument;
     }
@@ -65,6 +70,6 @@ public class InSpeedDiapasonExecutor extends QueryExecutor {
 
     @Override
     public void render() {
-
+        view.renderCarsList(result);
     }
 }

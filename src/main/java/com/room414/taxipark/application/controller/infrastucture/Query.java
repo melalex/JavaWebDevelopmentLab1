@@ -11,6 +11,7 @@ public class Query {
     public static class QueryBuilder {
         private QueryType queryType;
         private Map<String, String> arguments = new HashMap<>();
+        private String stringRepresentation;
 
         private QueryBuilder() {
 
@@ -26,11 +27,17 @@ public class Query {
             return this;
         }
 
+        public QueryBuilder setStringRepresentation(String stringRepresentation) {
+            this.stringRepresentation = stringRepresentation;
+            return this;
+        }
+
         public Query build() {
             Query query = new Query();
 
             query.queryType = this.queryType;
             query.arguments = this.arguments;
+            query.stringRepresentation = this.stringRepresentation;
 
             return query;
         }
@@ -38,6 +45,7 @@ public class Query {
 
     private QueryType queryType;
     private Map<String, String> arguments;
+    private String stringRepresentation;
 
     private Query() {
 
@@ -65,5 +73,14 @@ public class Query {
 
     public int argumentsCount() {
         return arguments.size();
+    }
+
+    @Override
+    public String toString() {
+        if (stringRepresentation != null) {
+            return stringRepresentation;
+        } else {
+            return super.toString();
+        }
     }
 }

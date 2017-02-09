@@ -16,8 +16,10 @@ import com.room414.taxipark.application.view.interfaces.View;
 public class SimpleController implements Controller {
     private QueryAnalyzer queryAnalyzer = new SimpleQueryAnalyzer();
     private QueryExecutorFactory queryExecutorFactory;
+    private View view;
 
     public SimpleController(DataStore dataStore, View view) {
+        this.view = view;
         this.queryExecutorFactory = new SimpleQueryExecutorFactory(dataStore, view);
     }
 
@@ -26,5 +28,10 @@ public class SimpleController implements Controller {
         Query query = queryAnalyzer.analyze(request);
         QueryExecutor queryExecutor = queryExecutorFactory.getQueryExecutor(query.getQueryType(), query);
         queryExecutor.complete();
+    }
+
+    @Override
+    public void addMessage(String message) {
+        view.renderMessage(message);
     }
 }
