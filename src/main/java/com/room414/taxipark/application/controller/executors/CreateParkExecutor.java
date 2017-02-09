@@ -37,7 +37,7 @@ public class CreateParkExecutor extends QueryExecutor {
             return false;
         }
 
-        numberArgument = query.getArgument(NAME_ARGUMENT_NAME);
+        numberArgument = query.getArgument(NUMBER_ARGUMENT_NAME);
         cityArgument = query.getArgument(CITY_ARGUMENT_NAME);
         countryArgument = query.getArgument(COUNTRY_ARGUMENT_NAME);
         streetArgument = query.getArgument(STREET_ARGUMENT_NAME);

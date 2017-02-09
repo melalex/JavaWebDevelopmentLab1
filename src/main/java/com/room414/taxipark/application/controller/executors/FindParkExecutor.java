@@ -1,5 +1,6 @@
 package com.room414.taxipark.application.controller.executors;
 
+import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.model.entities.Park;
 import com.room414.taxipark.application.model.interfaces.ParkRepository;
 import com.room414.taxipark.application.view.interfaces.View;
@@ -16,6 +17,7 @@ public class FindParkExecutor extends QueryWithOneIdArgumentExecutor {
     FindParkExecutor(ParkRepository parkRepository, View view) {
         this.parkRepository = parkRepository;
         this.view = view;
+        this.queryType = QueryType.GET_PARK;
     }
 
     @Override

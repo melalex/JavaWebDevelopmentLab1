@@ -1,6 +1,7 @@
 package com.room414.taxipark.application.controller.executors;
 
 import com.room414.taxipark.application.controller.infrastucture.Query;
+import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
 import com.room414.taxipark.application.model.entities.Car;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
@@ -18,6 +19,7 @@ public class FindAllCarsInParkExecutor extends QueryWithOneIdArgumentExecutor {
     FindAllCarsInParkExecutor(CarRepository carRepository, View view) {
         this.carRepository = carRepository;
         this.view = view;
+        this.queryType = QueryType.FIND_ALL_CARS;
     }
 
     @Override

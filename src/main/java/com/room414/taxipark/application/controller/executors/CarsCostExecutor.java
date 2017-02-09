@@ -1,5 +1,6 @@
 package com.room414.taxipark.application.controller.executors;
 
+import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
 import com.room414.taxipark.application.view.interfaces.View;
 
@@ -10,11 +11,12 @@ import java.math.BigDecimal;
  */
 public class CarsCostExecutor extends QueryWithOneIdArgumentExecutor {
     private CarRepository carRepository;
-    private BigDecimal result;
+    protected BigDecimal result;
 
     CarsCostExecutor(CarRepository carRepository, View view) {
         this.carRepository = carRepository;
         this.view = view;
+        this.queryType = QueryType.CARS_COST;
     }
 
     @Override

@@ -21,23 +21,23 @@ class SimpleQueryAnalyzer implements QueryAnalyzer {
     }};
 
     private static final Pattern queryPattern = Pattern.compile(
-            String.format("^(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s) " +
-                    "(\\s\\w+\\s?:\\s?\\w+)$",
-                    QueryType.CREATE_CAR,
-                    QueryType.CREATE_PARK,
-                    QueryType.FIND_ALL_CARS,
-                    QueryType.FIND_ALL_PARKS,
-                    QueryType.GET_CAR,
-                    QueryType.GET_PARK,
-                    QueryType.DELETE_CAR,
-                    QueryType.DELETE_PARK,
-                    QueryType.CARS_COST,
-                    QueryType.SPEED,
-                    QueryType.CONSUMPTION
+            String.format("^((%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s))" +
+                    "(\\s+\\w+\\s*:\\s*\\w+)*$",
+                    QueryType.CREATE_CAR.getQuery(),
+                    QueryType.CREATE_PARK.getQuery(),
+                    QueryType.FIND_ALL_CARS.getQuery(),
+                    QueryType.FIND_ALL_PARKS.getQuery(),
+                    QueryType.GET_CAR.getQuery(),
+                    QueryType.GET_PARK.getQuery(),
+                    QueryType.DELETE_CAR.getQuery(),
+                    QueryType.DELETE_PARK.getQuery(),
+                    QueryType.CARS_COST.getQuery(),
+                    QueryType.SPEED.getQuery(),
+                    QueryType.CONSUMPTION.getQuery()
             ),
             Pattern.CASE_INSENSITIVE
     );
-    private static final Pattern argumentPattern = Pattern.compile("^\\s\\w+\\s?:\\s?\\w+$");
+    private static final Pattern argumentPattern = Pattern.compile("\\s+\\w+\\s*:\\s*\\w+");
 
     private QueryType queryType(String query) {
         Set<String> queryStrings = types.keySet();
@@ -62,9 +62,8 @@ class SimpleQueryAnalyzer implements QueryAnalyzer {
             builder.setQueryType(queryType(normalizedQuery));
             Matcher matcher = argumentPattern.matcher(normalizedQuery);
             String[] arguments;
-
-            for (int i = 0, groupCount = matcher.groupCount(); i < groupCount; i++) {
-                arguments = matcher.group(i).split(":");
+            while (matcher.find()) {
+                arguments = matcher.group(0).split(":");
                 builder.setArgument(arguments[0].trim().toUpperCase(), arguments[1].trim());
             }
         } else {

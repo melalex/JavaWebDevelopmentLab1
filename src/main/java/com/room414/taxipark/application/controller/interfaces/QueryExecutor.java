@@ -2,6 +2,7 @@ package com.room414.taxipark.application.controller.interfaces;
 
 import com.room414.taxipark.application.controller.infrastucture.Query;
 import com.room414.taxipark.application.view.interfaces.View;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by melalex on 2/7/17.
@@ -31,6 +32,11 @@ public abstract class QueryExecutor {
         view.renderMessage("Cannot process the request: " + query.toString());
     }
 
-    protected abstract boolean prepare();
-    protected abstract void execute();
+    protected boolean prepare() {
+        return false;
+    }
+
+    protected void execute() {
+        throw new NotImplementedException();
+    }
 }

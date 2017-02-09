@@ -25,13 +25,13 @@ public enum QueryType {
     FIND_ALL_CARS{
         @Override
         public String getQuery(){
-            return "ALL_CAR";
+            return "ALL_CARS";
         }
     },
     FIND_ALL_PARKS {
         @Override
         public String getQuery(){
-            return "ALL_PARK";
+            return "ALL_PARKS";
         }
     },
     GET_CAR {
