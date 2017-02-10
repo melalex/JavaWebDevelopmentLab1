@@ -12,4 +12,5 @@ public interface View {
     void renderCarsList(List<Car> carList);
     void renderParksList(List<Park> parkList);
     void renderMessage(String message);
+    void renderLine(String line);
 }

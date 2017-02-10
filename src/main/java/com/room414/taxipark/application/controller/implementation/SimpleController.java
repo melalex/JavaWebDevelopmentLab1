@@ -34,4 +34,10 @@ public class SimpleController implements Controller {
     public void addMessage(String message) {
         view.renderMessage(message);
     }
+
+    @Override
+    public void addLine(String line) {
+        view.renderLine(line);
+    }
+
 }

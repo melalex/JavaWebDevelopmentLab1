@@ -108,6 +108,15 @@ public class SimpleView implements View {
             }
         }
 
+        idMaxLength++;
+        parkIdMaxLength++;
+        manufacturerMaxLength++;
+        modelMaxLength++;
+        consumptionMaxLength++;
+        speedMaxLength++;
+        currencyMaxLength++;
+        carClassMaxLength++;
+
         String formatString = stringMerger(
                 "|%", idMaxLength,"s|%",
                 parkIdMaxLength, "s|%",
@@ -124,8 +133,8 @@ public class SimpleView implements View {
 
         String line = getLine(lineLength);
 
-        out.print(line);
-        out.print(String.format(
+        out.println(line);
+        out.println(String.format(
                 formatString,
                 ID_COLUMN_NAME,
                 PARK_ID_COLUMN_NAME,
@@ -136,10 +145,10 @@ public class SimpleView implements View {
                 CURRENCY_COLUMN_NAME,
                 CAR_CLASS_COLUMN_NAME
         ));
-        out.print(line);
+        out.println(line);
 
         for (Car car : carList) {
-            out.print(String.format(String.format(
+            out.println(String.format(
                     formatString,
                     car.getId(),
                     car.getParkId(),
@@ -149,8 +158,8 @@ public class SimpleView implements View {
                     car.getSpeed(),
                     car.getCurrency(),
                     car.getCarClass()
-            )));
-            out.print(line);
+            ));
+            out.println(line);
         }
     }
 
@@ -202,16 +211,23 @@ public class SimpleView implements View {
                 countryMaxLength,"s|%",
                 cityMaxLength, "s|%",
                 streetMaxLength, "s|%",
-                buildingNumberMaxLength, "s|%"
+                buildingNumberMaxLength, "s|"
         );
+
+        idMaxLength++;
+        nameMaxLength++;
+        countryMaxLength++;
+        cityMaxLength++;
+        streetMaxLength++;
+        buildingNumberMaxLength++;
 
         int lineLength = DEFAULT_LINE_LENGTH + idMaxLength + nameMaxLength + countryMaxLength +
                 cityMaxLength + streetMaxLength + buildingNumberMaxLength;
 
         String line = getLine(lineLength);
 
-        out.print(line);
-        out.print(String.format(
+        out.println(line);
+        out.println(String.format(
                 formatString,
                 ID_COLUMN_NAME,
                 NAME_ID_COLUMN_NAME,
@@ -220,10 +236,10 @@ public class SimpleView implements View {
                 STREET_COLUMN_NAME,
                 BUILDING_NUMBER_COLUMN_NAME
         ));
-        out.print(line);
+        out.println(line);
 
         for (Park park : parkList) {
-            out.print(String.format(String.format(
+            out.println(String.format(
                     formatString,
                     park.getId(),
                     park.getName(),
@@ -231,13 +247,18 @@ public class SimpleView implements View {
                     park.getCity(),
                     park.getStreet(),
                     park.getBuildingNumber()
-            )));
-            out.print(line);
+            ));
+            out.println(line);
         }
     }
 
     @Override
     public void renderMessage(String message) {
         out.print(message);
+    }
+
+    @Override
+    public void renderLine(String line) {
+        out.println(line);
     }
 }

@@ -32,11 +32,6 @@ public class Application {
         this.printStream = printStream;
     }
 
-    public void forceStop() {
-        isRun = false;
-
-    }
-
     public void start() {
         try {
             init();

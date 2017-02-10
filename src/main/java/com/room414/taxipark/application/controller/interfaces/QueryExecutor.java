@@ -25,11 +25,11 @@ public abstract class QueryExecutor {
     }
 
     protected void render() {
-        view.renderMessage("OK");
+        view.renderLine("OK");
     }
 
     protected void renderErrors() {
-        view.renderMessage("Cannot process the request: " + query.toString());
+        view.renderLine("Cannot process the request: " + query.toString());
     }
 
     protected boolean prepare() {

@@ -6,4 +6,5 @@ package com.room414.taxipark.application.controller.interfaces;
 public interface Controller {
     void executeQuery(String query);
     void addMessage(String message);
+    void addLine(String line);
 }

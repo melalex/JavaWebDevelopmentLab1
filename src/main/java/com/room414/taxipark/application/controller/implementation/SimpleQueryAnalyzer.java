@@ -40,10 +40,11 @@ class SimpleQueryAnalyzer implements QueryAnalyzer {
     private static final Pattern argumentPattern = Pattern.compile("\\s+\\w+\\s*:\\s*\\w+");
 
     private QueryType queryType(String query) {
+        String ignoreCase = query.toUpperCase();
         Set<String> queryStrings = types.keySet();
         QueryType result = QueryType.INVALID;
         for (String queryString: queryStrings) {
-            if (query.startsWith(queryString)) {
+            if (ignoreCase.startsWith(queryString.toUpperCase())) {
                 result = types.get(queryString);
                 break;
             }
