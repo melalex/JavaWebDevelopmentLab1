@@ -1,6 +1,6 @@
 package com.room414.taxipark.application.controller.executors;
 
-import com.room414.taxipark.application.controller.infrastucture.Query;
+import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
 import com.room414.taxipark.application.model.entities.Park;
 import com.room414.taxipark.application.model.interfaces.ParkRepository;
@@ -11,6 +11,7 @@ import com.room414.taxipark.application.view.interfaces.View;
  */
 public class CreateParkExecutor extends QueryExecutor {
     private final static int ARGUMENTS_COUNT = 5;
+    private final static QueryType QUERY_TYPE = QueryType.CREATE_PARK;
 
     private final static String NUMBER_ARGUMENT_NAME = "NUMBER";
     private final static String CITY_ARGUMENT_NAME = "CITY";
@@ -33,6 +34,10 @@ public class CreateParkExecutor extends QueryExecutor {
 
     @Override
     public boolean prepare() {
+        if (QUERY_TYPE != query.getQueryType()) {
+            return false;
+        }
+
         if (ARGUMENTS_COUNT != query.argumentsCount()) {
             return false;
         }

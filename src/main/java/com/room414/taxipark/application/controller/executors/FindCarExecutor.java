@@ -28,6 +28,12 @@ public class FindCarExecutor extends QueryWithOneIdArgumentExecutor {
 
     @Override
     public void render() {
-        view.renderCarsList(new LinkedList<Car>(){{addLast(result);}});
+        if (result != null) {
+            view.renderCarsList(new LinkedList<Car>() {{
+                addLast(result);
+            }});
+        } else {
+            view.renderCarsList(new LinkedList<>());
+        }
     }
 }

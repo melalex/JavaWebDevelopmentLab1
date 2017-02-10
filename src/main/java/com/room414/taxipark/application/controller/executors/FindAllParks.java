@@ -1,8 +1,7 @@
 package com.room414.taxipark.application.controller.executors;
 
-import com.room414.taxipark.application.controller.infrastucture.Query;
+import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
-import com.room414.taxipark.application.controller.interfaces.QueryExecutorFactory;
 import com.room414.taxipark.application.model.entities.Park;
 import com.room414.taxipark.application.model.interfaces.ParkRepository;
 import com.room414.taxipark.application.view.interfaces.View;
@@ -13,6 +12,8 @@ import java.util.List;
  * Created by melalex on 2/8/17.
  */
 public class FindAllParks extends QueryExecutor {
+    private final static QueryType QUERY_TYPE = QueryType.FIND_ALL_PARKS;
+
     private ParkRepository parkRepository;
     private List<Park> result;
 
@@ -23,7 +24,8 @@ public class FindAllParks extends QueryExecutor {
 
     @Override
     public boolean prepare() {
-        return query.argumentsCount() == 0;
+        return QUERY_TYPE == query.getQueryType() && query.argumentsCount() == 0;
+
     }
 
     @Override

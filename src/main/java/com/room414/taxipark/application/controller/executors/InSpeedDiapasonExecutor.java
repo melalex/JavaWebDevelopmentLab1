@@ -1,5 +1,6 @@
 package com.room414.taxipark.application.controller.executors;
 
+import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
 import com.room414.taxipark.application.model.entities.Car;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
@@ -14,9 +15,10 @@ import java.util.List;
 public class InSpeedDiapasonExecutor extends QueryExecutor {
     private final static int ARGUMENTS_COUNT = 3;
 
-    private final static String ID_ARGUMENT_NAME = "ID";
-    private final static String MIN_ARGUMENT_NAME = "MIN";
-    private final static String MAX_ARGUMENT_NAME = "MAX";
+    private static final String ID_ARGUMENT_NAME = "ID";
+    private static final String MIN_ARGUMENT_NAME = "MIN";
+    private static final String MAX_ARGUMENT_NAME = "MAX";
+    private static final QueryType QUERY_TYPE = QueryType.SPEED;
 
     private CarRepository carRepository;
     private List<Car> result;
@@ -32,13 +34,17 @@ public class InSpeedDiapasonExecutor extends QueryExecutor {
 
     @Override
     public boolean prepare() {
+        if (QUERY_TYPE != query.getQueryType()) {
+            return false;
+        }
+
         if (ARGUMENTS_COUNT != query.argumentsCount()) {
             return false;
         }
 
         String id = query.getArgument(ID_ARGUMENT_NAME);
 
-        if (id == null || IsParsable.isParsableToInt(id)) {
+        if (id == null || !IsParsable.isParsableToInt(id)) {
             return false;
         }
 
@@ -46,7 +52,7 @@ public class InSpeedDiapasonExecutor extends QueryExecutor {
 
         String min = query.getArgument(MIN_ARGUMENT_NAME);
 
-        if (min == null || IsParsable.isParsableToFloat(min)) {
+        if (min == null || !IsParsable.isParsableToFloat(min)) {
             return false;
         }
 
@@ -54,7 +60,7 @@ public class InSpeedDiapasonExecutor extends QueryExecutor {
 
         String max = query.getArgument(MAX_ARGUMENT_NAME);
 
-        if (max == null || IsParsable.isParsableToFloat(max)) {
+        if (max == null || !IsParsable.isParsableToFloat(max)) {
             return false;
         }
 

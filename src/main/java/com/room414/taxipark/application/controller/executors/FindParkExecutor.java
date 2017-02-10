@@ -27,6 +27,12 @@ public class FindParkExecutor extends QueryWithOneIdArgumentExecutor {
 
     @Override
     public void render() {
-        view.renderParksList(new LinkedList<Park>(){{addLast(result);}});
+        if (result != null) {
+            view.renderParksList(new LinkedList<Park>() {{
+                addLast(result);
+            }});
+        } else {
+            view.renderParksList(new LinkedList<>());
+        }
     }
 }

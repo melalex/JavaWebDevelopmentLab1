@@ -1,5 +1,6 @@
 package com.room414.taxipark.application.controller.executors;
 
+import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
 import com.room414.taxipark.application.model.entities.Car;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
@@ -11,6 +12,7 @@ import com.room414.taxipark.application.view.interfaces.View;
  */
 public class CreateCarExecutor extends QueryExecutor {
     private final static int ARGUMENTS_COUNT = 7;
+    private final static QueryType QUERY_TYPE = QueryType.CREATE_CAR;
 
     private final static String CLASS_ARGUMENT_NAME = "CLASS";
     private final static String CONSUMPTION_ARGUMENT_NAME = "CONSUMPTION";
@@ -39,6 +41,10 @@ public class CreateCarExecutor extends QueryExecutor {
 
     @Override
     public boolean prepare() {
+        if (QUERY_TYPE != query.getQueryType()) {
+            return false;
+        }
+
         if (ARGUMENTS_COUNT != query.argumentsCount()) {
             return false;
         }
@@ -86,7 +92,7 @@ public class CreateCarExecutor extends QueryExecutor {
         String park = query.getArgument(PARK_ARGUMENT_NAME);
 
         if (park == null
-                || IsParsable.isParsableToInt(park)
+                || !IsParsable.isParsableToInt(park)
                 || parkRepository.find(Integer.parseInt(park)) == null) {
             return false;
         }
