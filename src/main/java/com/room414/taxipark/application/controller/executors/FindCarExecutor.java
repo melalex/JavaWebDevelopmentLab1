@@ -33,9 +33,9 @@ public class FindCarExecutor extends QueryWithOneIdArgumentExecutor {
     @Override
     public void render() {
         if (result != null) {
-            view.renderCarsList(new LinkedList<Car>() {{
-                addLast(result);
-            }});
+            LinkedList<Car> linkedList = new LinkedList<>();
+            linkedList.add(result);
+            view.renderCarsList(linkedList);
         } else {
             view.renderCarsList(new LinkedList<>());
         }

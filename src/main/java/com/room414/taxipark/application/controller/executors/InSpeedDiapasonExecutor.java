@@ -6,7 +6,6 @@ import com.room414.taxipark.application.model.entities.Car;
 import com.room414.taxipark.application.model.interfaces.CarRepository;
 import com.room414.taxipark.application.view.interfaces.View;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -17,7 +16,7 @@ import java.util.List;
  * @author melalex
  */
 public class InSpeedDiapasonExecutor extends QueryExecutor {
-    private final static int ARGUMENTS_COUNT = 3;
+    private static final int ARGUMENTS_COUNT = 3;
 
     private static final String ID_ARGUMENT_NAME = "ID";
     private static final String MIN_ARGUMENT_NAME = "MIN";

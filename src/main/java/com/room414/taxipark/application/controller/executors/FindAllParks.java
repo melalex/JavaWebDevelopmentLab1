@@ -16,7 +16,7 @@ import java.util.List;
  * @author melalex
  */
 public class FindAllParks extends QueryExecutor {
-    private final static QueryType QUERY_TYPE = QueryType.FIND_ALL_PARKS;
+    private static final QueryType QUERY_TYPE = QueryType.FIND_ALL_PARKS;
 
     private ParkRepository parkRepository;
     private List<Park> result;

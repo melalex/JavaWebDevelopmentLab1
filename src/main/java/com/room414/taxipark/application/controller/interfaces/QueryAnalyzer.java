@@ -8,6 +8,7 @@ import com.room414.taxipark.application.controller.infrastucture.Query;
  * @version 1.0 12 Feb 2017
  * @author melalex
  */
+@FunctionalInterface
 public interface QueryAnalyzer {
     /**
      * Make lexical analyze of query.

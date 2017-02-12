@@ -8,6 +8,10 @@ import com.room414.taxipark.application.Application;
  * @author melalex
  */
 public class Main {
+    private  Main() {
+
+    }
+
     public static void main(String[] args) {
         Application app = new Application(System.in, System.out);
         app.start();

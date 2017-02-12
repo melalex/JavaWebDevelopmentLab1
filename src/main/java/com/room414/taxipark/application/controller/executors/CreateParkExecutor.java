@@ -14,14 +14,14 @@ import com.room414.taxipark.application.view.interfaces.View;
  * @author melalex
  */
 public class CreateParkExecutor extends QueryExecutor {
-    private final static int ARGUMENTS_COUNT = 5;
-    private final static QueryType QUERY_TYPE = QueryType.CREATE_PARK;
+    private static final int ARGUMENTS_COUNT = 5;
+    private static final QueryType QUERY_TYPE = QueryType.CREATE_PARK;
 
-    private final static String NUMBER_ARGUMENT_NAME = "NUMBER";
-    private final static String CITY_ARGUMENT_NAME = "CITY";
-    private final static String COUNTRY_ARGUMENT_NAME = "COUNTRY";
-    private final static String STREET_ARGUMENT_NAME = "STREET";
-    private final static String NAME_ARGUMENT_NAME = "NAME";
+    private static final String NUMBER_ARGUMENT_NAME = "NUMBER";
+    private static final String CITY_ARGUMENT_NAME = "CITY";
+    private static final String COUNTRY_ARGUMENT_NAME = "COUNTRY";
+    private static final String STREET_ARGUMENT_NAME = "STREET";
+    private static final String NAME_ARGUMENT_NAME = "NAME";
 
     private ParkRepository parkRepository;
 

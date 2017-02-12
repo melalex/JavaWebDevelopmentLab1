@@ -6,7 +6,7 @@ package com.room414.taxipark.application.model.entities;
  * @version 1.0 09 Feb 2017
  * @author melalex
  */
-public class Park extends Entity<Integer> {
+public class Park implements Entity<Integer> {
 
     public static class ParkBuilder {
         private static int nextId = 0;
@@ -51,7 +51,7 @@ public class Park extends Entity<Integer> {
             Park park = new Park();
 
             if (id == -1) {
-                park.id = nextId++;
+                park.id = getNextId();
             }
 
             park.name = this.name;
@@ -61,6 +61,10 @@ public class Park extends Entity<Integer> {
             park.buildingNumber = this.buildingNumber;
 
             return park;
+        }
+
+        private static synchronized int getNextId() {
+            return nextId++;
         }
     }
 

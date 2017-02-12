@@ -9,7 +9,7 @@ import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
  * @author melalex
  */
 abstract class QueryWithOneIdArgumentExecutor extends QueryExecutor {
-    private final static int ARGUMENTS_COUNT = 1;
+    private static final int ARGUMENTS_COUNT = 1;
     private static final String ID_ARGUMENT_NAME = "ID";
 
     protected int id;

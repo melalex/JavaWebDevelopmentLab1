@@ -2,7 +2,6 @@ package com.room414.taxipark.application.model.interfaces;
 
 import com.room414.taxipark.application.model.entities.Car;
 import com.room414.taxipark.application.model.repositories.TreeMapCarRepository;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 
 import java.math.BigDecimal;

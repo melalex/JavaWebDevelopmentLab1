@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * @version 1.0 09 Feb 2017
  * @author melalex
  */
-public class Car extends Entity<Integer> {
+public class Car implements Entity<Integer> {
     public enum CarClass {A, B, C, D, E, F, J, M, S }
 
     public static class CarBuilder {
@@ -65,7 +65,7 @@ public class Car extends Entity<Integer> {
             Car newCar = new Car();
 
             if (id == -1) {
-                newCar.id = nextId++;
+                newCar.id = getNextId();
             }
 
             newCar.parkId = this.parkId;
@@ -77,6 +77,10 @@ public class Car extends Entity<Integer> {
             newCar.carClass = this.carClass;
 
             return newCar;
+        }
+
+        private static synchronized int getNextId() {
+            return nextId++;
         }
     }
 

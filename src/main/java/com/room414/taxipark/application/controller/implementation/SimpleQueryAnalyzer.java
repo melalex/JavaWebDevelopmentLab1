@@ -16,11 +16,13 @@ import java.util.regex.Pattern;
  * @author melalex
  */
 class SimpleQueryAnalyzer implements QueryAnalyzer {
-    private static final Map<String, QueryType> types = new HashMap<String, QueryType>() {{
+    private static final Map<String, QueryType> types = new HashMap<>();
+
+    static {
         for (QueryType type: QueryType.values()) {
-            put(type.getQuery(), type);
+            types.put(type.getQuery(), type);
         }
-    }};
+    }
 
     private static final Pattern queryPattern = Pattern.compile(
             String.format("^((%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s)|(%s))" +

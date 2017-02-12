@@ -15,16 +15,16 @@ import com.room414.taxipark.application.view.interfaces.View;
  * @author melalex
  */
 public class CreateCarExecutor extends QueryExecutor {
-    private final static int ARGUMENTS_COUNT = 7;
-    private final static QueryType QUERY_TYPE = QueryType.CREATE_CAR;
+    private static final int ARGUMENTS_COUNT = 7;
+    private static final QueryType QUERY_TYPE = QueryType.CREATE_CAR;
 
-    private final static String CLASS_ARGUMENT_NAME = "CLASS";
-    private final static String CONSUMPTION_ARGUMENT_NAME = "CONSUMPTION";
-    private final static String CURRENCY_ARGUMENT_NAME = "CURRENCY";
-    private final static String MANUFACTURER_ARGUMENT_NAME = "MANUFACTURER";
-    private final static String MODEL_ARGUMENT_NAME = "MODEL";
-    private final static String PARK_ARGUMENT_NAME = "PARK";
-    private final static String SPEED_ARGUMENT_NAME = "SPEED";
+    private static final String CLASS_ARGUMENT_NAME = "CLASS";
+    private static final String CONSUMPTION_ARGUMENT_NAME = "CONSUMPTION";
+    private static final String CURRENCY_ARGUMENT_NAME = "CURRENCY";
+    private static final String MANUFACTURER_ARGUMENT_NAME = "MANUFACTURER";
+    private static final String MODEL_ARGUMENT_NAME = "MODEL";
+    private static final String PARK_ARGUMENT_NAME = "PARK";
+    private static final String SPEED_ARGUMENT_NAME = "SPEED";
 
     private CarRepository carRepository;
     private ParkRepository parkRepository;

@@ -2,7 +2,6 @@ package com.room414.taxipark.application.controller.interfaces;
 
 import com.room414.taxipark.application.controller.infrastucture.Query;
 import com.room414.taxipark.application.view.interfaces.View;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Base class to query execute strategies.
@@ -57,6 +56,6 @@ public abstract class QueryExecutor {
      * Executes query.
      */
     protected void execute() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 }
