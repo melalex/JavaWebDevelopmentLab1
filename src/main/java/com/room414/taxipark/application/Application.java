@@ -36,7 +36,7 @@ public class Application {
         try {
             init();
             run();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             stop();

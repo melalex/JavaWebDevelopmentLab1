@@ -1,1 +1,1 @@
-{"carRepository"}
+{"carRepository":{"dataStore":{"0":{"id":0,"parkId":0,"manufacturer":"qwe","model":"asd","consumption":10.0,"speed":100.0,"currency":100,"carClass":"A"}}},"parkRepository":{"dataStore":{"0":{"id":0,"name":"qwe","country":"UKR","city":"Kiev","street":"Kovalski","buildingNumber":"4a"}}}}
