@@ -8,7 +8,11 @@ import com.room414.taxipark.application.view.interfaces.View;
 import java.util.List;
 
 /**
- * Created by melalex on 2/8/17.
+ * Execute query with type QueryType.FIND_ALL_CARS
+ *
+ * @see QueryType#FIND_ALL_CARS
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class FindAllCarsInParkExecutor extends QueryWithOneIdArgumentExecutor {
     private CarRepository carRepository;

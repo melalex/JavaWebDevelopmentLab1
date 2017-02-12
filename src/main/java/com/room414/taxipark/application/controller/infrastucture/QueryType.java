@@ -1,7 +1,9 @@
 package com.room414.taxipark.application.controller.infrastucture;
 
 /**
- * Created by melalex on 2/7/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public enum QueryType {
     INVALID {
@@ -77,5 +79,10 @@ public enum QueryType {
         }
     };
 
+    /**
+     *
+     * @version 1.0 12 Feb 2017
+     * @author melalex
+     */
     public abstract String getQuery();
 }

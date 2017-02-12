@@ -4,7 +4,9 @@ import com.room414.taxipark.application.controller.infrastucture.QueryType;
 import com.room414.taxipark.application.controller.interfaces.QueryExecutor;
 
 /**
- * Created by melalex on 2/8/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 abstract class QueryWithOneIdArgumentExecutor extends QueryExecutor {
     private final static int ARGUMENTS_COUNT = 1;

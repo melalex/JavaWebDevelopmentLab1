@@ -8,7 +8,11 @@ import com.room414.taxipark.application.view.interfaces.View;
 import java.util.List;
 
 /**
- * Created by melalex on 2/8/17.
+ * Execute query with type QueryType.CONSUMPTION
+ *
+ * @see QueryType#CONSUMPTION
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class SortByConsumptionExecutor extends QueryWithOneIdArgumentExecutor {
     private CarRepository carRepository;

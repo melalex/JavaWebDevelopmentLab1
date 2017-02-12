@@ -3,7 +3,9 @@ package com.room414.taxipark.application.controller.executors;
 import com.room414.taxipark.application.model.entities.Car;
 
 /**
- * Created by melalex on 2/8/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 class IsParsable {
     private IsParsable() {

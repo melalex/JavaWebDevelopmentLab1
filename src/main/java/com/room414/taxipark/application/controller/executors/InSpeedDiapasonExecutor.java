@@ -10,7 +10,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by melalex on 2/8/17.
+ * Execute query with type QueryType.SPEED
+ *
+ * @see QueryType#SPEED
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class InSpeedDiapasonExecutor extends QueryExecutor {
     private final static int ARGUMENTS_COUNT = 3;

@@ -11,7 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by melalex on 2/7/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 class SimpleQueryAnalyzer implements QueryAnalyzer {
     private static final Map<String, QueryType> types = new HashMap<String, QueryType>() {{

@@ -9,7 +9,11 @@ import com.room414.taxipark.application.view.interfaces.View;
 import java.util.List;
 
 /**
- * Created by melalex on 2/8/17.
+ * Execute query with type QueryType.FIND_ALL_PARKS
+ *
+ * @see QueryType#FIND_ALL_PARKS
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class FindAllParks extends QueryExecutor {
     private final static QueryType QUERY_TYPE = QueryType.FIND_ALL_PARKS;

@@ -2,7 +2,6 @@ package com.room414.taxipark.application.model.entities;
 
 
 /**
- * Class description goes here.
  *
  * @version 1.0 09 Feb 2017
  * @author melalex

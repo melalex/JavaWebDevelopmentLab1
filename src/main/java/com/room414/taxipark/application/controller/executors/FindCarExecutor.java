@@ -9,7 +9,11 @@ import java.util.LinkedList;
 
 
 /**
- * Created by melalex on 2/8/17.
+ * Execute query with type QueryType.GET_CAR
+ *
+ * @see QueryType#GET_CAR
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class FindCarExecutor extends QueryWithOneIdArgumentExecutor {
     private CarRepository carRepository;

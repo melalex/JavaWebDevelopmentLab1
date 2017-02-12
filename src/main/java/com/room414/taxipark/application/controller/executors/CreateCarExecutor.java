@@ -8,7 +8,11 @@ import com.room414.taxipark.application.model.interfaces.ParkRepository;
 import com.room414.taxipark.application.view.interfaces.View;
 
 /**
- * Created by melalex on 2/8/17.
+ * Execute query with type QueryType.CREATE_CAR
+ *
+ * @see QueryType#CREATE_CAR
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class CreateCarExecutor extends QueryExecutor {
     private final static int ARGUMENTS_COUNT = 7;

@@ -11,7 +11,9 @@ import com.room414.taxipark.application.view.interfaces.View;
 
 
 /**
- * Created by melalex on 2/5/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class SimpleController implements Controller {
     private QueryAnalyzer queryAnalyzer = new SimpleQueryAnalyzer();
@@ -26,7 +28,7 @@ public class SimpleController implements Controller {
     @Override
     public void executeQuery(String request) {
         Query query = queryAnalyzer.analyze(request);
-        QueryExecutor queryExecutor = queryExecutorFactory.getQueryExecutor(query.getQueryType(), query);
+        QueryExecutor queryExecutor = queryExecutorFactory.getQueryExecutor(query);
         queryExecutor.complete();
     }
 

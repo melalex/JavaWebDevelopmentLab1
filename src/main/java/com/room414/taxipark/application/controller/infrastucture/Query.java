@@ -5,7 +5,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by melalex on 2/6/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class Query {
     public static class QueryBuilder {

@@ -11,7 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by melalex on 2/8/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class SimpleQueryExecutorFactory implements QueryExecutorFactory {
     private Map<QueryType, QueryExecutor> queryExecutorMap;
@@ -43,8 +45,8 @@ public class SimpleQueryExecutorFactory implements QueryExecutorFactory {
     }
 
     @Override
-    public QueryExecutor getQueryExecutor(QueryType type, Query query) {
-        QueryExecutor result = queryExecutorMap.get(type);
+    public QueryExecutor getQueryExecutor(Query query) {
+        QueryExecutor result = queryExecutorMap.get(query.getQueryType());
         result.setQuery(query);
         return result;
     }
