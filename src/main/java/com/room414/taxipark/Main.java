@@ -3,7 +3,9 @@ package com.room414.taxipark;
 import com.room414.taxipark.application.Application;
 
 /**
- * Created by melalex on 2/5/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class Main {
     public static void main(String[] args) {

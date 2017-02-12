@@ -8,7 +8,9 @@ import java.io.PrintStream;
 import java.util.List;
 
 /**
- * Created by melalex on 2/9/17.
+ *
+ * @version 1.0 12 Feb 2017
+ * @author melalex
  */
 public class SimpleView implements View {
     private static final String ID_COLUMN_NAME = "Id";
