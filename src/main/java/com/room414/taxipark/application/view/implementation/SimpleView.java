@@ -22,13 +22,14 @@ public class SimpleView implements View {
     private static final String CURRENCY_COLUMN_NAME = "Currency";
     private static final String CAR_CLASS_COLUMN_NAME = "Car class";
 
-    private static final String NAME_ID_COLUMN_NAME = "Name";
+    private static final String NAME_COLUMN_NAME = "Name";
     private static final String COUNTRY_COLUMN_NAME = "Country";
     private static final String CITY_COLUMN_NAME = "City";
     private static final String STREET_COLUMN_NAME = "Street";
     private static final String BUILDING_NUMBER_COLUMN_NAME = "Building number";
 
-    private static final int DEFAULT_LINE_LENGTH = 9;
+    private static final int CARS_DEFAULT_LINE_LENGTH = 9;
+    private static final int PARKS_DEFAULT_LINE_LENGTH = 7;
 
     private PrintStream out;
 
@@ -130,7 +131,7 @@ public class SimpleView implements View {
                 carClassMaxLength, "s|"
         );
 
-        int lineLength = DEFAULT_LINE_LENGTH + idMaxLength + parkIdMaxLength + manufacturerMaxLength +
+        int lineLength = CARS_DEFAULT_LINE_LENGTH + idMaxLength + parkIdMaxLength + manufacturerMaxLength +
                 modelMaxLength + consumptionMaxLength + speedMaxLength + currencyMaxLength + carClassMaxLength;
 
         String line = getLine(lineLength);
@@ -168,7 +169,7 @@ public class SimpleView implements View {
     @Override
     public void renderParksList(List<Park> parkList) {
         int idMaxLength = ID_COLUMN_NAME.length();
-        int nameMaxLength = NAME_ID_COLUMN_NAME.length();
+        int nameMaxLength = NAME_COLUMN_NAME.length();
         int countryMaxLength = COUNTRY_COLUMN_NAME.length();
         int cityMaxLength = CITY_COLUMN_NAME.length();
         int streetMaxLength = STREET_COLUMN_NAME.length();
@@ -207,6 +208,13 @@ public class SimpleView implements View {
             }
         }
 
+        idMaxLength++;
+        nameMaxLength++;
+        countryMaxLength++;
+        cityMaxLength++;
+        streetMaxLength++;
+        buildingNumberMaxLength++;
+
         String formatString = stringMerger(
                 "|%", idMaxLength,"s|%",
                 nameMaxLength, "s|%",
@@ -216,14 +224,7 @@ public class SimpleView implements View {
                 buildingNumberMaxLength, "s|"
         );
 
-        idMaxLength++;
-        nameMaxLength++;
-        countryMaxLength++;
-        cityMaxLength++;
-        streetMaxLength++;
-        buildingNumberMaxLength++;
-
-        int lineLength = DEFAULT_LINE_LENGTH + idMaxLength + nameMaxLength + countryMaxLength +
+        int lineLength = PARKS_DEFAULT_LINE_LENGTH + idMaxLength + nameMaxLength + countryMaxLength +
                 cityMaxLength + streetMaxLength + buildingNumberMaxLength;
 
         String line = getLine(lineLength);
@@ -232,7 +233,7 @@ public class SimpleView implements View {
         out.println(String.format(
                 formatString,
                 ID_COLUMN_NAME,
-                NAME_ID_COLUMN_NAME,
+                NAME_COLUMN_NAME,
                 COUNTRY_COLUMN_NAME,
                 CITY_COLUMN_NAME,
                 STREET_COLUMN_NAME,

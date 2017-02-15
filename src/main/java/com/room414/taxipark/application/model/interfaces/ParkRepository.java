@@ -13,5 +13,4 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
  */
 @JsonDeserialize(as = TreeMapParkRepository.class)
 public interface ParkRepository extends CrudRepository<Integer, Park> {
-
 }

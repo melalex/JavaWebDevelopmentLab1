@@ -7,4 +7,5 @@ package com.room414.taxipark.application.model.entities;
  */
 public interface Entity<K> {
     K getId();
+    void setId(Integer id);
 }

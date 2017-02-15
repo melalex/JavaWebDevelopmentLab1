@@ -9,8 +9,6 @@ package com.room414.taxipark.application.model.entities;
 public class Park implements Entity<Integer> {
 
     public static class ParkBuilder {
-        private static int nextId = 0;
-
         private int id = -1;
         private String name;
         private String country;
@@ -51,7 +49,7 @@ public class Park implements Entity<Integer> {
             Park park = new Park();
 
             if (id == -1) {
-                park.id = getNextId();
+                park.id = id;
             }
 
             park.name = this.name;
@@ -61,10 +59,6 @@ public class Park implements Entity<Integer> {
             park.buildingNumber = this.buildingNumber;
 
             return park;
-        }
-
-        private static synchronized int getNextId() {
-            return nextId++;
         }
     }
 
@@ -97,6 +91,11 @@ public class Park implements Entity<Integer> {
     @Override
     public Integer getId() {
         return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

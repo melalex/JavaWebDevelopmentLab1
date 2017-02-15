@@ -21,6 +21,11 @@ class TreeMapRepositoryTest {
             public Integer getId() {
                 return 1;
             }
+
+            @Override
+            public void setId(Integer id) {
+
+            }
         };
         TreeMapRepository<Integer, Entity<Integer>> repository = new TreeMapRepository<>();
 
@@ -36,14 +41,23 @@ class TreeMapRepositoryTest {
             public Integer getId() {
                 return 1;
             }
+
+            @Override
+            public void setId(Integer id) {
+
+            }
         };
         Entity<Integer> entity2 = new Entity<Integer>() {
             @Override
             public Integer getId() {
                 return 1;
             }
+
+            @Override
+            public void setId(Integer id) {
+
+            }
         };
-        Entity<Integer> entityResult;
         TreeMapRepository<Integer, Entity<Integer>> repository = new TreeMapRepository<>();
 
         repository.create(entity1);
@@ -60,17 +74,32 @@ class TreeMapRepositoryTest {
             public Integer getId() {
                 return 1;
             }
+
+            @Override
+            public void setId(Integer id) {
+
+            }
         };
         Entity<Integer> entity2 = new Entity<Integer>() {
             @Override
             public Integer getId() {
                 return 2;
             }
+
+            @Override
+            public void setId(Integer id) {
+
+            }
         };
         Entity<Integer> entity3 = new Entity<Integer>() {
             @Override
             public Integer getId() {
                 return 3;
+            }
+
+            @Override
+            public void setId(Integer id) {
+
             }
         };
         TreeMapRepository<Integer, Entity<Integer>> repository = new TreeMapRepository<>();
@@ -94,11 +123,21 @@ class TreeMapRepositoryTest {
             public Integer getId() {
                 return 1;
             }
+
+            @Override
+            public void setId(Integer id) {
+
+            }
         };
         Entity<Integer> entity2 = new Entity<Integer>() {
             @Override
             public Integer getId() {
                 return 1;
+            }
+
+            @Override
+            public void setId(Integer id) {
+
             }
         };
         TreeMapRepository<Integer, Entity<Integer>> repository = new TreeMapRepository<>();
@@ -118,6 +157,11 @@ class TreeMapRepositoryTest {
             @Override
             public Integer getId() {
                 return 1;
+            }
+
+            @Override
+            public void setId(Integer id) {
+
             }
         };
         TreeMapRepository<Integer, Entity<Integer>> repository = new TreeMapRepository<>();

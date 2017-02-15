@@ -11,8 +11,6 @@ public class Car implements Entity<Integer> {
     public enum CarClass {A, B, C, D, E, F, J, M, S }
 
     public static class CarBuilder {
-        private static int nextId = 0;
-
         private int id = -1;
         private int parkId;
         private String manufacturer;
@@ -65,7 +63,7 @@ public class Car implements Entity<Integer> {
             Car newCar = new Car();
 
             if (id == -1) {
-                newCar.id = getNextId();
+                newCar.id = id;
             }
 
             newCar.parkId = this.parkId;
@@ -77,10 +75,6 @@ public class Car implements Entity<Integer> {
             newCar.carClass = this.carClass;
 
             return newCar;
-        }
-
-        private static synchronized int getNextId() {
-            return nextId++;
         }
     }
 
@@ -117,6 +111,11 @@ public class Car implements Entity<Integer> {
     @Override
     public Integer getId() {
         return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getParkId() {

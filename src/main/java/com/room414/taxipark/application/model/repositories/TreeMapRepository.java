@@ -15,6 +15,8 @@ import java.util.TreeMap;
  * @author melalex
  */
 public class TreeMapRepository<K, T extends Entity<K>> implements CrudRepository<K, T> {
+    private int nextId = 0;
+
     protected Map<K, T> dataStore = new TreeMap<>();
 
     /**
@@ -27,6 +29,8 @@ public class TreeMapRepository<K, T extends Entity<K>> implements CrudRepository
         if (dataStore.containsKey(entity.getId())) {
             throw new IllegalArgumentException("Repository already contains entity with id " + entity.getId());
         }
+
+        entity.setId(getNextId());
 
         dataStore.put(entity.getId(), entity);
     }
@@ -68,5 +72,9 @@ public class TreeMapRepository<K, T extends Entity<K>> implements CrudRepository
     @Override
     public void delete(K id) {
         dataStore.remove(id);
+    }
+
+    public int getNextId() {
+        return nextId++;
     }
 }
